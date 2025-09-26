@@ -1,14 +1,12 @@
 package com.example.swagger.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Table(name = "book")
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString

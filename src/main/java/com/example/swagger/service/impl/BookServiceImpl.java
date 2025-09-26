@@ -1,5 +1,6 @@
 package com.example.swagger.service.impl;
 
+import com.example.swagger.model.dto.BookRequest;
 import com.example.swagger.model.dto.BookResponse;
 import com.example.swagger.model.entity.Book;
 import com.example.swagger.repository.BookRepository;
@@ -26,6 +27,21 @@ public class BookServiceImpl implements BookService {
         log.info("list >> {}", list);
 
         return list.stream().map(this::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public BookResponse createBook(BookRequest request) {
+
+        Book book = Book.builder().title(request.getTitle())
+                .author(request.getAuthor())
+                .category(request.getCategory())
+                .publishedYear(request.getPublishedYear())
+                .build();
+
+        Book saveBook = bookRepository.save(book);
+
+        BookResponse bookResponse = toDto(saveBook);
+        return bookResponse;
     }
 
     /**

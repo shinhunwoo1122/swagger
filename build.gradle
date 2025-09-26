@@ -38,7 +38,8 @@ dependencies {
     // 4. Swagger/OpenAPI 문서화 (SpringDoc)
     // Spring Boot 3+ 환경에서 권장됩니다.
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0' // 최신 2.x.x 버전을 사용하세요.
-
+    // Spring Boot Web 의존성 안에 포함될 수도 있지만, 명시적으로 추가하는 것이 확실합니다.
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     // 5. 개발 편의성 (선택 사항)
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
